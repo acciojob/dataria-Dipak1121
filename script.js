@@ -5,21 +5,21 @@ let ans = [];
 while(arr1.length > 0 || arr2.length > 0){
 	while(arr1.length > 0 && arr2.length > 0){
 		if(arr1[0] < arr2[0]){
-			ans.push(arr1[0].shift());
+			ans.push(arr1.shift());
 		}
 		else{
-			ans.push(arr2[0].shift());
+			ans.push(arr2.shift());
 		}
 	}
 
 	if( arr1.length > 0 ){
 		while(arr1.length > 0){
-			ans.push(arr1[0].shift());
+			ans.push(arr1.shift());
 		}
 	}
 	else{
 		while(arr2.length > 0){
-			ans.push(arr2[0].shift());
+			ans.push(arr2.shift());
 		}
 	}
 }
