@@ -17,4 +17,9 @@ while(arr1.length > 0 || arr2.length > 0){
 			ans.push(arr1[0].shift());
 		}
 	}
+	else{
+		while(arr2.length > 0){
+			ans.push(arr2[0].shift());
+		}
+	}
 }
