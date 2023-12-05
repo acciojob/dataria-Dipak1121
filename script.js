@@ -1,25 +1,33 @@
-//your JS code here. If required.
-let arr1 = [3, 7, 12, 20];
-let arr2 = [1, 5, 8, 18, 25];
-let ans = [];
-while(arr1.length > 0 || arr2.length > 0){
-	while(arr1.length > 0 && arr2.length > 0){
-		if(arr1[0] < arr2[0]){
-			ans.push(arr1.shift());
-		}
-		else{
-			ans.push(arr2.shift());
-		}
-	}
+function mergeCraftDates(emilyCraftDates, oliverCraftDates) {
+  const mergedDates = [];
+  let i = 0;
+  let j = 0;
 
-	if( arr1.length > 0 ){
-		while(arr1.length > 0){
-			ans.push(arr1.shift());
-		}
-	}
-	else{
-		while(arr2.length > 0){
-			ans.push(arr2.shift());
-		}
-	}
+  while (i < emilyCraftDates.length && j < oliverCraftDates.length) {
+    if (emilyCraftDates[i] <= oliverCraftDates[j]) {
+      mergedDates.push(emilyCraftDates[i]);
+      i++;
+    } else {
+      mergedDates.push(oliverCraftDates[j]);
+      j++;
+    }
+  }
+
+  while (i < emilyCraftDates.length) {
+    mergedDates.push(emilyCraftDates[i]);
+    i++;
+  }
+
+  while (j < oliverCraftDates.length) {
+    mergedDates.push(oliverCraftDates[j]);
+    j++;
+  }
+
+  return mergedDates;
 }
+
+const emilyCraftDates = [3, 7, 12, 20];
+const oliverCraftDates = [1, 5, 8, 18, 25];
+const mergedDates = mergeCraftDates(emilyCraftDates, oliverCraftDates);
+
+console.log(mergedDates);
